@@ -1,0 +1,17 @@
+D:\Teleqram\C# learning\CleanArchitectire\Application\bin\Debug\net8.0\Application.deps.json
+D:\Teleqram\C# learning\CleanArchitectire\Application\bin\Debug\net8.0\Application.runtimeconfig.json
+D:\Teleqram\C# learning\CleanArchitectire\Application\bin\Debug\net8.0\Application.dll
+D:\Teleqram\C# learning\CleanArchitectire\Application\bin\Debug\net8.0\Application.pdb
+D:\Teleqram\C# learning\CleanArchitectire\Application\bin\Debug\net8.0\Domain.dll
+D:\Teleqram\C# learning\CleanArchitectire\Application\bin\Debug\net8.0\Domain.pdb
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\Application.dll
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\refint\Application.dll
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\Application.pdb
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\Application.genruntimeconfig.cache
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\ref\Application.dll
+D:\Teleqram\C# learning\CleanArchitectire\Application\obj\Debug\net8.0\Application.csproj.CopyComplete
