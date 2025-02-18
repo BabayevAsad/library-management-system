@@ -2,6 +2,7 @@
 using Application.People.Commands.AddBook;
 using Application.People.Commands.Create;
 using Application.People.Commands.Delete;
+using Application.People.Commands.RemoveBook;
 using Application.People.Commands.Update;
 using Application.People.Queries.GetAll;
 using Application.People.Queries.GetById;
@@ -82,5 +83,17 @@ public class PeopleController : Controller
         return NoContent();
     }
     
+    [HttpDelete("{personId}/books/{bookId}")]
+    public async Task<IActionResult> RemoveBookFromPerson([FromRoute] int personId, [FromRoute] int bookId)
+    {
+        await _mediator.Send(new RemoveBookFromPersonCommand()
+        {
+            Id = personId,
+            BookId = bookId,
+        });
+
+        return NoContent();
+    }
+
     
 }

@@ -18,7 +18,7 @@ public class AddBookToPersonCommandHandler : IRequestHandler<AddBookToPersonComm
         _repoPersonBook = repoPersonBook;
     }
 
-    public  async Task Handle(AddBookToPersonCommand request, CancellationToken cancellationToken)
+    public async Task Handle(AddBookToPersonCommand request, CancellationToken cancellationToken)
     {
         var book = await _repoBooks.GetByIdAsync(request.BookId);
         var person = await _repoPerson.GetByIdAsync(request.Id);

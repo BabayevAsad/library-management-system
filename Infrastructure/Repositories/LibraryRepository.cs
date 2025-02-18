@@ -22,10 +22,21 @@ public class LibraryRepository : BaseRepository<Library>, ILibraryRepository
     
     public async Task<Library> GetByIdAsync(int id)
     {
-        return await _dbSet
-            .Where(p => !p.IsDeleted && p.Id == id)
-            .Include(p => p.Books) 
+        var library = await _dbSet
+            .Where(l => !l.IsDeleted && l.Id == id)
+            .Select(l => new Library
+            {
+                Id = l.Id,
+                Name = l.Name,
+                Books = l.LibraryBooks
+                    .Where(lb => !lb.IsDeleted)
+                    .Select(lb => lb.Book)
+                    .Where(b => !b.IsDeleted)
+                    .ToList()
+            })
             .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Library not found.");
+
+        return library;
     }
    
 }

@@ -12,5 +12,5 @@ public class Person : BaseEntity
     public int GenderId { get; set; }
     public string FinNumber { get; set; }
     public List<Book> Books { get; set; } = new List<Book>();
-    
+    public ICollection<PersonBook.PersonBook> PersonBooks { get; set; }
 }

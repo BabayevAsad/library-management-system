@@ -155,3 +155,4 @@ D:\Teleqram\C# learning\CleanArchitectire\Api\bin\Debug\net8.0\Microsoft.Identit
 D:\Teleqram\C# learning\CleanArchitectire\Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 D:\Teleqram\C# learning\CleanArchitectire\Api\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\Teleqram\C# learning\CleanArchitectire\Api\obj\Debug\net8.0\Api.csproj.CopyComplete
+D:\Teleqram\C# learning\CleanArchitectire\Api\obj\Debug\net8.0\Api.sourcelink.json

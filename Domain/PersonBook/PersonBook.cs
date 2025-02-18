@@ -11,5 +11,15 @@ public class PersonBook : BaseEntity
     
     public Book Book { get; set; }
     public int BookId { get; set; }
+
+    public PersonBook()
+    {
+        
+    }
+    public PersonBook(int personId, int bookId)
+    {
+        PersonId = personId;
+        BookId = bookId;
+    }
     
 }

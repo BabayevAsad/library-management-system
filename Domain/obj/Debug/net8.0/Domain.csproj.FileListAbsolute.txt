@@ -12,3 +12,4 @@ D:\Teleqram\C# learning\CleanArchitectire\Domain\obj\Debug\net8.0\refint\Domain.
 D:\Teleqram\C# learning\CleanArchitectire\Domain\obj\Debug\net8.0\Domain.pdb
 D:\Teleqram\C# learning\CleanArchitectire\Domain\obj\Debug\net8.0\Domain.genruntimeconfig.cache
 D:\Teleqram\C# learning\CleanArchitectire\Domain\obj\Debug\net8.0\ref\Domain.dll
+D:\Teleqram\C# learning\CleanArchitectire\Domain\obj\Debug\net8.0\Domain.sourcelink.json

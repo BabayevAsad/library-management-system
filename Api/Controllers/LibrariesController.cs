@@ -2,6 +2,7 @@
 using Application.Library.Commands.AddBook;
 using Application.Library.Commands.Create;
 using Application.Library.Commands.Delete;
+using Application.Library.Commands.RemoveBook;
 using Application.Library.Commands.Update;
 using Application.Library.Queries.GetAll;
 using Application.Library.Queries.GetById;
@@ -73,6 +74,18 @@ public class LibrariesController : Controller
     public async Task<IActionResult> AddBook([FromRoute] int libraryId, [FromRoute] int bookId )
     {
         await _mediator.Send(new AddBookToLibraryCommand()
+        {
+            Id = libraryId,
+            BookId = bookId,
+        });
+
+        return NoContent();
+    }
+    
+    [HttpDelete("{libraryId}/books/{bookId}")]
+    public async Task<IActionResult> RemoveBookFromPerson([FromRoute] int libraryId, [FromRoute] int bookId)
+    {
+        await _mediator.Send(new RemoveBookFromLibraryCommand()
         {
             Id = libraryId,
             BookId = bookId,

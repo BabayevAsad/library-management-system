@@ -18,7 +18,6 @@ public class GetByIdPersonQueryHandler : IRequestHandler<GetByIdPersonQuery, Per
     public async Task<PersonDetailsDto> Handle(GetByIdPersonQuery request, CancellationToken cancellationToken)
     {
         var person = await _repo.GetByIdAsync(request.Id);
-        Console.Out.Write(person);
         
         var personDetail = new PersonDetailsDto()
         {
