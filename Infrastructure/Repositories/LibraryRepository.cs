@@ -35,7 +35,7 @@ public class LibraryRepository : BaseRepository<Library>, ILibraryRepository
                     .ToList()
             })
             .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Library not found.");
-
+        
         return library;
     }
    
