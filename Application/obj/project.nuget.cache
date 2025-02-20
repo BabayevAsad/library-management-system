@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/tBLR+ygeQTpcRCjWHrjjzQ6MY3RBq3uQaVy9ZnbJnUou4B7Iqet0L+wUWUNSiUKeQPuy5Yh16BSEUcjIjHNDw==",
+  "dgSpecHash": "XUJX/cNm6pA17+Ui/RoXGcweBkzlhigrOXd/j1GKisMQFrYXb7LN9aiEd6/6HGYnehlsvOHk1AW1etzbj5mcPg==",
   "success": true,
-  "projectFilePath": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Application\\Application.csproj",
+  "projectFilePath": "D:\\Teleqram\\C# learning\\LibraryManagment\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",

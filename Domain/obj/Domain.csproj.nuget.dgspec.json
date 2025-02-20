@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Teleqram\\C# learning\\CleanArchitectire\\Domain\\Domain.csproj": {}
+    "D:\\Teleqram\\C# learning\\LibraryManagment\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\Teleqram\\C# learning\\CleanArchitectire\\Domain\\Domain.csproj": {
+    "D:\\Teleqram\\C# learning\\LibraryManagment\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Teleqram\\C# learning\\LibraryManagment\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Domain\\Domain.csproj",
+        "projectPath": "D:\\Teleqram\\C# learning\\LibraryManagment\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Domain\\obj\\",
+        "outputPath": "D:\\Teleqram\\C# learning\\LibraryManagment\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config"

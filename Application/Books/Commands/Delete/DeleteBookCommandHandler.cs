@@ -1,10 +1,9 @@
 ﻿using Api.Books;
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Application.Books.Commands.Delete;
 
-public class DeleteBookCommandHandler : DeleteBookCommand,IRequestHandler<DeleteBookCommand>
+public class DeleteBookCommandHandler : IRequestHandler<DeleteBookCommand>
 {
     private readonly IBookRepository _repo;
 

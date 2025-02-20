@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250213163356_New")]
-    partial class New
+    [Migration("20250219230313_Many_to_many_changes")]
+    partial class Many_to_many_changes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -264,13 +264,13 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Api.LibraryBook.LibraryBook", b =>
                 {
                     b.HasOne("Api.Books.Book", "Book")
-                        .WithMany()
+                        .WithMany("LibraryBooks")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Api.Libraries.Library", "Library")
-                        .WithMany()
+                        .WithMany("LibraryBooks")
                         .HasForeignKey("LibraryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -283,13 +283,13 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Api.PersonBook.PersonBook", b =>
                 {
                     b.HasOne("Api.Books.Book", "Book")
-                        .WithMany()
+                        .WithMany("PersonBooks")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Api.People.Person", "Person")
-                        .WithMany()
+                        .WithMany("PersonBooks")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -297,6 +297,23 @@ namespace Infrastructure.Migrations
                     b.Navigation("Book");
 
                     b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("Api.Books.Book", b =>
+                {
+                    b.Navigation("LibraryBooks");
+
+                    b.Navigation("PersonBooks");
+                });
+
+            modelBuilder.Entity("Api.Libraries.Library", b =>
+                {
+                    b.Navigation("LibraryBooks");
+                });
+
+            modelBuilder.Entity("Api.People.Person", b =>
+                {
+                    b.Navigation("PersonBooks");
                 });
 #pragma warning restore 612, 618
         }

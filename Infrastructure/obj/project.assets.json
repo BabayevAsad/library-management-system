@@ -3957,11 +3957,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "D:\\Teleqram\\C# learning\\LibraryManagment\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "D:\\Teleqram\\C# learning\\LibraryManagment\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Infrastructure\\obj\\",
+      "outputPath": "D:\\Teleqram\\C# learning\\LibraryManagment\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3976,11 +3976,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Teleqram\\C# learning\\CleanArchitectire\\Application\\Application.csproj": {
-              "projectPath": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Application\\Application.csproj"
+            "D:\\Teleqram\\C# learning\\LibraryManagment\\Application\\Application.csproj": {
+              "projectPath": "D:\\Teleqram\\C# learning\\LibraryManagment\\Application\\Application.csproj"
             },
-            "D:\\Teleqram\\C# learning\\CleanArchitectire\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Domain\\Domain.csproj"
+            "D:\\Teleqram\\C# learning\\LibraryManagment\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Teleqram\\C# learning\\LibraryManagment\\Domain\\Domain.csproj"
             }
           }
         }

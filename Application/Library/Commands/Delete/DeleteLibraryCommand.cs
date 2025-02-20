@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Application.Library.Commands.Delete;
 
-public class DeleteLibraryCommand : LibraryCommand, IRequest
+public class DeleteLibraryCommand : BaseCommand, IRequest
 {
     
 }

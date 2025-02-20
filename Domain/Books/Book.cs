@@ -14,4 +14,5 @@ public class Book : BaseEntity
     public List<Person> People { get; set;} = new List<Person>();
     public List<Library> Libraries { get; set; } = new List<Library>();
     public ICollection<PersonBook.PersonBook> PersonBooks { get; set; }
+    public ICollection<LibraryBook.LibraryBook> LibraryBooks { get; set; }
 }

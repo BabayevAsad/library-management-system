@@ -28,6 +28,7 @@ public class LibraryRepository : BaseRepository<Library>, ILibraryRepository
             {
                 Id = l.Id,
                 Name = l.Name,
+                Location = l.Location,
                 Books = l.LibraryBooks
                     .Where(lb => !lb.IsDeleted)
                     .Select(lb => lb.Book)

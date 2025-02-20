@@ -63,7 +63,7 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
     public async Task DeleteAsync(TEntity entity)
     {
         entity.IsDeleted = true;
-
+        Console.WriteLine(entity);
        await _dataContext.SaveChangesAsync();
     }
     

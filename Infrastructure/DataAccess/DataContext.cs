@@ -89,12 +89,27 @@ public class DataContext : DbContext
         {
             entity.HasKey(lb => new { lb.BookId, lb.LibraryId });
             entity.ToTable("library_books");
+            
+            entity.HasOne(lb => lb.Library)
+                .WithMany(l => l.LibraryBooks)
+                .HasForeignKey(lb => lb.LibraryId)
+                .OnDelete(DeleteBehavior.Cascade); 
+
+            entity.HasOne(lb => lb.Book)
+                .WithMany(b => b.LibraryBooks)
+                .HasForeignKey(lb => lb.BookId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<PersonBook>(entity =>
         {
             entity.HasKey(pb => new { pb.BookId, pb.PersonId });
             entity.ToTable("person_books");
+
+            entity.HasOne(pb => pb.Person)
+                .WithMany(p => p.PersonBooks)
+                .HasForeignKey(pb => pb.PersonId)
+                .OnDelete(DeleteBehavior.Cascade);
         }); 
     }
 }

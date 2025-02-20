@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aXwAd/KYvD7b5yX++IilGhd+E7Fk0os+PScrz9NYqwQcFFnABB7EDwfT7QxyBobxMPWmYxrHNl/tVPq4FxdY2A==",
+  "dgSpecHash": "vVuW6YaUu6sqxq94MRYoiIKP4nxSCc4TGRL1p5NiiJgofUkrMPaPsMjd3lGkYLi6xLI8TpLbezjCa/veRxDUwA==",
   "success": true,
-  "projectFilePath": "D:\\Teleqram\\C# learning\\CleanArchitectire\\Domain\\Domain.csproj",
+  "projectFilePath": "D:\\Teleqram\\C# learning\\LibraryManagment\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.0.0\\fluentvalidation.dependencyinjectionextensions.11.0.0.nupkg.sha512",

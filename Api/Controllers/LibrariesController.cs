@@ -60,13 +60,13 @@ public class LibrariesController : Controller
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult> Delete([FromRoute] int id)
+    public async Task<IActionResult> Delete([FromRoute] int id)
     {
         await _mediator.Send(new DeleteLibraryCommand()
         {
             Id = id
         });
-
+        
         return NoContent();
     }
     
