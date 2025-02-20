@@ -1,5 +1,4 @@
 ﻿using Api.Libraries;
-using Api.LibraryBook;
 using MediatR;
 
 namespace Application.Library.Commands.Delete;
@@ -7,12 +6,10 @@ namespace Application.Library.Commands.Delete;
 public class DeleteLibraryCommandHandler : IRequestHandler<DeleteLibraryCommand>
 {
     private readonly ILibraryRepository _repo;
-    private readonly ILibraryBookRepository _repoLB;
 
-    public DeleteLibraryCommandHandler(ILibraryRepository repo, ILibraryBookRepository repoLb)
+    public DeleteLibraryCommandHandler(ILibraryRepository repo)
     {
         _repo = repo;
-        _repoLB = repoLb;
     }
 
     public async Task Handle(DeleteLibraryCommand request, CancellationToken cancellationToken)
