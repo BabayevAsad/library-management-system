@@ -1,6 +1,8 @@
 # Ignore build outputs and compiled files
 bin/
 obj/
+**/bin/
+**/obj/
 [Bb]in/
 [Oo]bj/
 *.dll
