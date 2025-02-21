@@ -24,7 +24,7 @@ internal class CreateLibraryCommandHandler : IRequestHandler<CreateLibraryComman
             Count = request.Count,
         };
 
-        await _repo.CreatAsync(library);
+        await _repo.CreateAsync(library);
 
         return library.Id;
     }

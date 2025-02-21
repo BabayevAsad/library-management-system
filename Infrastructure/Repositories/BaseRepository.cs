@@ -46,7 +46,7 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
     }
 
 
-    public async Task CreatAsync(TEntity entity)
+    public async Task CreateAsync(TEntity entity)
     {
         _dbSet.Add(entity);
 

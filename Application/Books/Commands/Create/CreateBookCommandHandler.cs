@@ -23,7 +23,7 @@ internal class CreateBookCommandHandler : IRequestHandler<CreateBookCommand, int
             Price = request.Price,
         };
 
-        await _repo.CreatAsync(book);
+        await _repo.CreateAsync(book);
 
         return book.Id;
     }

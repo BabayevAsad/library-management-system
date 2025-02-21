@@ -29,7 +29,7 @@ public class AddBookToLibraryCommandHandler : IRequestHandler<AddBookToLibraryCo
             LibraryId = library.Id,
         };
 
-        await _repoBookLibrary.CreatAsync(bookLibrary);
+        await _repoBookLibrary.CreateAsync(bookLibrary);
 
     }
 }

@@ -30,7 +30,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, string>
             Role = RoleHelper.GetById(request.RoleId),
         };
 
-        await _userRepository.CreatAsync(newUser);
+        await _userRepository.CreateAsync(newUser);
         var token = _tokenHandler.CreateToken(newUser);
 
         return token.AccessToken;

@@ -25,7 +25,7 @@ public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand,in
             FinNumber = request.FinNumber,
         };
 
-        await _repo.CreatAsync(person);
+        await _repo.CreateAsync(person);
 
         return person.Id;
     }
