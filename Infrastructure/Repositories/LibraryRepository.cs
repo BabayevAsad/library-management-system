@@ -35,7 +35,7 @@ public class LibraryRepository : BaseRepository<Library>, ILibraryRepository
                     .Where(b => !b.IsDeleted)
                     .ToList()
             })
-            .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Library not found.");
+            .FirstOrDefaultAsync() ?? throw new InvalidOperationException($"Library with ID {id} not found.");
         
         return library;
     }

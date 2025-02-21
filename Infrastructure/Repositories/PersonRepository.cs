@@ -34,7 +34,7 @@ public class PersonRepository : BaseRepository<Person>, IPersonRepository
                     .Where(b => !b.IsDeleted)
                     .ToList()
             })
-            .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Person not found.");
+            .FirstOrDefaultAsync() ?? throw new InvalidOperationException($"Person with ID {id} not found.");
 
         return person;
     }

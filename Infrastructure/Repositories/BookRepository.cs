@@ -13,11 +13,11 @@ public class BookRepository : BaseRepository<Book>, IBookRepository
         _dbSet = dataContext.Set<Book>();
     }
     
-    public async Task<Book> GetByIdAsync(int Id)
+    public async Task<Book> GetByIdAsync(int id)
     {
         return await _dbSet
-            .Where(b => !b.IsDeleted && b.Id == Id)
+            .Where(b => !b.IsDeleted && b.Id == id)
             .Include(b => b.People) 
-            .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Person not found.");
+            .FirstOrDefaultAsync() ?? throw new InvalidOperationException($"Book with ID {id} not found.");
     }
 }

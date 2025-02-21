@@ -25,7 +25,7 @@ public class LibraryBookRepository : BaseRepository<LibraryBook>, ILibraryBookRe
 
         if (libraryBook == null)
         {
-            throw new InvalidOperationException($"No active records found for PersonId {libraryId} and BookId {bookId}");
+            throw new InvalidOperationException($"No active records found for LibraryId {libraryId} and BookId {bookId}");
         }
 
         return  libraryBook;
