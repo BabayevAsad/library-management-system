@@ -34,6 +34,5 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, string>
         var token = _tokenHandler.CreateToken(newUser);
 
         return token.AccessToken;
-
     }
 }

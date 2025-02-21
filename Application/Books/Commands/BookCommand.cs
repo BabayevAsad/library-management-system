@@ -7,5 +7,4 @@ public class BookCommand : BaseCommand
     public string Type { get; set; }
     public int PageCount { get; set; }
     public int Price { get; set; }
-    
 }

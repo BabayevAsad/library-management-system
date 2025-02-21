@@ -19,7 +19,6 @@ public class DataContext : DbContext
     {
     }
     
-    
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         AddTimestamps();

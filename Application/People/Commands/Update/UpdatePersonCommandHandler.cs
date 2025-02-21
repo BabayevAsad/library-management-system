@@ -1,5 +1,4 @@
 ﻿using Api.People;
-using Application.People.Queries;
 using MediatR;
 
 namespace Application.People.Commands.Update;

@@ -18,7 +18,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, string>
     public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetByNameAsync(request.Username);
-
+        
         var result = user != null && BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash);
 
         if (result != true)

@@ -21,7 +21,6 @@ public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand>
         book.PageCount = request.PageCount;
         book.Price = request.Price;
         
-
         await _repo.UpdateAsync(book);
     }
 }

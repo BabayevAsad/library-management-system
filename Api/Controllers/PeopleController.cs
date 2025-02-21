@@ -54,10 +54,9 @@ public class PeopleController : Controller
     public async Task<NoContentResult> Update([FromRoute] int id, [FromBody] UpdatePersonCommand command)
     {
         command.Id = id;
-
         await _mediator.Send(command);
+        
         return NoContent();
-
     }
 
     [HttpDelete("{id}")]
@@ -94,6 +93,4 @@ public class PeopleController : Controller
 
         return NoContent();
     }
-
-    
 }

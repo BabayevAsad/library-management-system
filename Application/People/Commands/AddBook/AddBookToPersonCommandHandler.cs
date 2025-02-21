@@ -28,7 +28,7 @@ public class AddBookToPersonCommandHandler : IRequestHandler<AddBookToPersonComm
             BookId = request.BookId,
             PersonId = request.Id
         };
-
+        
         await _repoPersonBook.CreateAsync(personBook);
     }
 }

@@ -14,12 +14,5 @@ public class PersonBook : BaseEntity
 
     public PersonBook()
     {
-        
     }
-    public PersonBook(int personId, int bookId)
-    {
-        PersonId = personId;
-        BookId = bookId;
-    }
-    
 }

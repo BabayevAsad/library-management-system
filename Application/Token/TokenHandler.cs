@@ -2,7 +2,6 @@
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using Api.Roles;
 using Api.User;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -59,5 +58,4 @@ public class TokenHandler
         
         return token;
     }
-
 }

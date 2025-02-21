@@ -1,9 +1,4 @@
-﻿using Api.Base;
-using Api.Books;
-using Application.Books.Queries.GetAll;
-using Application.Books.Queries.GetById;
-
-namespace Application.People.Queries;
+﻿namespace Application.People.Queries;
 
 public class PersonDto : BaseDto
 {
@@ -13,6 +8,4 @@ public class PersonDto : BaseDto
     public DateTime BirthDate { get; set; }
     public int GenderId { get; set; }
     public string FinNumber { get; set; }
-    
-    
 }

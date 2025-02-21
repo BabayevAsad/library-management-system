@@ -15,7 +15,6 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
     {
         _dataContext = dataContext;
         _dbSet = dataContext.Set<TEntity>();
-
     } 
         
     public async Task<List<TEntity>> GetAllAsync()
@@ -65,5 +64,4 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
         entity.IsDeleted = true;
        await _dataContext.SaveChangesAsync();
     }
-    
 }

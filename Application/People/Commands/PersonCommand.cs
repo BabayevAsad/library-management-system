@@ -1,5 +1,4 @@
-﻿using Api.People;
-
+﻿
 namespace Application.People.Commands;
 
 public class PersonCommand : BaseCommand
@@ -10,6 +9,4 @@ public class PersonCommand : BaseCommand
     public DateTime BirthDate { get; set; }
     public int GenderId { get; set; }
     public string FinNumber { get; set; }
-    
-    
 }

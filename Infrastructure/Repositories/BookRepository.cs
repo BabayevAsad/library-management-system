@@ -20,5 +20,4 @@ public class BookRepository : BaseRepository<Book>, IBookRepository
             .Include(b => b.People) 
             .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Person not found.");
     }
-    
 }

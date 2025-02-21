@@ -1,5 +1,4 @@
 ﻿using Application.Books.Queries;
-using Application.People.Queries;
 
 namespace Application.Library.Queries.GetById;
 

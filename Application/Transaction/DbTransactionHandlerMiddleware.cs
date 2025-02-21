@@ -24,7 +24,5 @@ public class DbTransactionHandlerMiddleware<TDbContext> where TDbContext : DbCon
             await _next(context);
             await transaction.CommitAsync();
         }
-        
     }
-    
 }

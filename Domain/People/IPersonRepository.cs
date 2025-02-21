@@ -4,5 +4,4 @@ namespace Api.People;
 
 public interface IPersonRepository : IBaseRepository<Person>
 {
-    
 }

@@ -1,7 +1,5 @@
-﻿using Api.Books;
-using Api.People;
+﻿using Api.People;
 using Application.Books.Queries;
-using Application.Books.Queries.GetById;
 using MediatR;
 
 namespace Application.People.Queries.GetById;

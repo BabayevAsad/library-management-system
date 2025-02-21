@@ -4,5 +4,4 @@ namespace Api.Books;
 
 public interface IBookRepository : IBaseRepository<Book>
 {
-    
 }

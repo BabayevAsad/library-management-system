@@ -39,5 +39,4 @@ public class LibraryRepository : BaseRepository<Library>, ILibraryRepository
         
         return library;
     }
-   
 }

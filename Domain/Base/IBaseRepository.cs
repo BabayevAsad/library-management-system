@@ -12,5 +12,4 @@ public interface IBaseRepository<TEntity> where TEntity : class
     Task DeleteAsync(TEntity entity);
     Task<bool> ExistsAsync(int id);
     bool Exists(int id);
-    
 }

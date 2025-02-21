@@ -43,6 +43,5 @@ public class PersonBookRepository : BaseRepository<PersonBook>, IPersonBookRepos
             personBook.IsDeleted = true;
             await _dataContext.SaveChangesAsync(); 
         }
-        
     }
 }

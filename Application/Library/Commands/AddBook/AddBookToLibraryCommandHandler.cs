@@ -30,6 +30,5 @@ public class AddBookToLibraryCommandHandler : IRequestHandler<AddBookToLibraryCo
         };
 
         await _repoBookLibrary.CreateAsync(bookLibrary);
-
     }
 }

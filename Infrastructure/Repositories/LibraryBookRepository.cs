@@ -29,9 +29,7 @@ public class LibraryBookRepository : BaseRepository<LibraryBook>, ILibraryBookRe
         }
 
         return  libraryBook;
-        
     }
-    
     
     public async Task DeleteAsync(LibraryBook library_Book)
     {
@@ -44,7 +42,5 @@ public class LibraryBookRepository : BaseRepository<LibraryBook>, ILibraryBookRe
             personBook.IsDeleted = true;
             await _dataContext.SaveChangesAsync(); 
         }
-        
     }
-    
 }

@@ -1,9 +1,7 @@
-﻿using Application.Books.Commands;
-using MediatR;
+﻿using MediatR;
 
 namespace Application.Library.Commands.Update;
 
 public class UpdateLibraryCommand : LibraryCommand, IRequest
 {
-    
 }

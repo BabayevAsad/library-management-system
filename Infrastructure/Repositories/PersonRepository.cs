@@ -1,6 +1,5 @@
 ﻿using Api.People;
 using Infrastructure.DataAccess;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
@@ -38,6 +37,5 @@ public class PersonRepository : BaseRepository<Person>, IPersonRepository
             .FirstOrDefaultAsync() ?? throw new InvalidOperationException("Person not found.");
 
         return person;
-
     }
 }

@@ -21,6 +21,7 @@ public class BooksController : Controller
     {
         _mediator = mediator;
     }
+    
     [HttpGet]
     public async Task<ActionResult<List<Book>>> GetAll()
     {
@@ -52,10 +53,9 @@ public class BooksController : Controller
     public async Task<NoContentResult> Update([FromRoute] int id, [FromBody] UpdateBookCommand command)
     {
         command.Id = id;
-
         await _mediator.Send(command);
+        
         return NoContent();
-
     }
 
     [HttpDelete("{id}")]
@@ -68,5 +68,4 @@ public class BooksController : Controller
 
         return NoContent();
     }
-    
 }

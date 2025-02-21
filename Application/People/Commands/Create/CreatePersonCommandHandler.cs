@@ -1,5 +1,4 @@
 ﻿using Api.People;
-using Application.Books.Queries;
 using MediatR;
 
 namespace Application.People.Commands.Create;
