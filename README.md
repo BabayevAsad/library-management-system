@@ -44,4 +44,4 @@ Technologies Used
 9)Dependency Injection
 
 ## Find a bug?  
-If you found any problem or would like to improve this project, please feel free to reach out to me at **esed.babayev2002@gmail.com** or submit an issue using the issues tab above. If you would like to submit a PR with a fix, please reference the issue you are addressing.
+If you found any problem or would like to improve this project, please feel free to reach out to me at **asad_babayev@outlook.com** or submit an issue using the issues tab above. If you would like to submit a PR with a fix, please reference the issue you are addressing.
