@@ -1,4 +1,5 @@
 using System.Text;
+using System.Threading.RateLimiting;
 using Application.Auth.Register;
 using Application.Books.Commands.Create;
 using Application.Books.Commands.Update;
@@ -14,6 +15,7 @@ using FluentValidation.AspNetCore;
 using Infrastructure;
 using Infrastructure.DataAccess;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -57,6 +59,16 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAl
 
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddRateLimiter(rateLimiterOptions =>
+{
+    rateLimiterOptions.AddFixedWindowLimiter("fixed", options =>
+    {
+        options.Window = TimeSpan.FromSeconds(10);
+        options.PermitLimit = 5;
+        options.QueueLimit = 3;
+        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+    });
+});
 
 builder.Services.AddAuthentication(options =>
     {
@@ -122,8 +134,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseMiddleware<DbTransactionHandlerMiddleware<DataContext>>();
 app.UseHttpsRedirection();
+app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers(); 
+app.MapControllers().RequireRateLimiting("fixed"); 
 
 app.Run();
