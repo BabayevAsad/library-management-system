@@ -1,4 +1,5 @@
 ﻿using Api.People;
+using Application.Application.Caching;
 using Application.People.Commands.AddBook;
 using Application.People.Commands.Create;
 using Application.People.Commands.Delete;
@@ -8,6 +9,7 @@ using Application.People.Queries.GetAll;
 using Application.People.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace CleanArchitectire.Controllers;
 
@@ -16,10 +18,12 @@ namespace CleanArchitectire.Controllers;
 [Route("api/[controller]")]
 public class PeopleController : Controller
 {
+    private readonly IDistributedCache _cache;
     private readonly IMediator _mediator;
 
-    public PeopleController(IMediator mediator)
+    public PeopleController(IMediator mediator, IDistributedCache cache)
     {
+        _cache = cache;
         _mediator = mediator;
     }
     
@@ -34,11 +38,14 @@ public class PeopleController : Controller
     [HttpGet("{id}")]
     public async Task<ActionResult<Person>> GetById([FromRoute] int id)
     {
-        var person = await _mediator.Send(new GetByIdPersonQuery
-        {
-            Id = id, 
-        });
+        string key = $"person-{id}";
         
+        var person = await _cache.GetOrCreateAsync(key, async token => 
+        {
+            var person = await _mediator.Send(new GetByIdPersonQuery { Id = id });
+            return person;
+        });
+
         return Ok(person);
     }
 

@@ -28,6 +28,10 @@ public class PersonRepository : BaseRepository<Person>, IPersonRepository
             {
                 Id = p.Id,
                 Name = p.Name,
+                Surname = p.Surname,
+                FatherName = p.FatherName,
+                FinNumber = p.FinNumber,
+                GenderId = p.GenderId,
                 Books = p.PersonBooks
                     .Where(pb => !pb.IsDeleted)
                     .Select(pb => pb.Book)

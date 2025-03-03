@@ -1,12 +1,13 @@
 ﻿using Api.Books;
+using Application.Application.Caching;
 using Application.Books.Commands.Create;
 using Application.Books.Commands.Delete;
 using Application.Books.Commands.Update;
 using Application.Books.Queries.GetAll;
 using Application.Books.Queries.GetById;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace CleanArchitectire.Controllers;
 
@@ -15,12 +16,14 @@ namespace CleanArchitectire.Controllers;
 
 public class BooksController : Controller
 {
+    private readonly IDistributedCache _cache;
     private readonly IMediator _mediator;
 
-    public BooksController(IMediator mediator)
+    public BooksController(IDistributedCache cache, IMediator mediator)
     {
+        _cache = cache;
         _mediator = mediator;
-    }
+    }   
     
     [HttpGet]
     public async Task<ActionResult<List<Book>>> GetAll()
@@ -33,9 +36,12 @@ public class BooksController : Controller
     [HttpGet("{id}")]
     public async Task<ActionResult<Book>> GetById([FromRoute] int id)
     {
-        var book = await _mediator.Send(new GetByIdBookQuery
+        string key = $"book-{id}";
+
+        var book = await _cache.GetOrCreateAsync(key, async token =>
         {
-            Id = id, 
+            var book = await _mediator.Send(new GetByIdBookQuery { Id = id });
+            return book;
         });
         
         return Ok(book);

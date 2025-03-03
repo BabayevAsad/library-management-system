@@ -28,7 +28,7 @@ public class PersonValidator<T> : AbstractValidator<T> where T : PersonCommand
             .Matches(@"^\d{5}-\d{5}$").WithMessage("FinNumber must be in the format '12345-67890'.");
         
         RuleFor(x => x.GenderId)
-            .NotEmpty().WithMessage("Gender is required.") // Ensures that GenderId is not empty
+            .NotEmpty().WithMessage("Gender is required.") 
             .Must(genderId => GenderHelper.GetById(genderId) != null)
             .WithMessage("GenderId must be a valid gender.");
     }

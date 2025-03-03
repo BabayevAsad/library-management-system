@@ -1,4 +1,5 @@
 ﻿using Api.Libraries;
+using Application.Application.Caching;
 using Application.Library.Commands.AddBook;
 using Application.Library.Commands.Create;
 using Application.Library.Commands.Delete;
@@ -8,6 +9,7 @@ using Application.Library.Queries.GetAll;
 using Application.Library.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace CleanArchitectire.Controllers;
 
@@ -16,10 +18,12 @@ namespace CleanArchitectire.Controllers;
 
 public class LibrariesController : Controller
 {
+    private readonly IDistributedCache _cache;
     private readonly IMediator _mediator;
 
-    public LibrariesController(IMediator mediator)
+    public LibrariesController(IMediator mediator, IDistributedCache cache)
     {
+        _cache = cache;
         _mediator = mediator;
     }
     
@@ -34,12 +38,16 @@ public class LibrariesController : Controller
     [HttpGet("{id}")]
     public async Task<ActionResult<Library>> GetById([FromRoute] int id)
     {
-        var library = await _mediator.Send(new GetByIdLibraryQuery
-        {
-            Id = id, 
+        string key = $"library-{id}";
+        
+        var library = await _cache.GetOrCreateAsync(key, async token =>
+        { 
+            var library = await _mediator.Send(new GetByIdLibraryQuery { Id = id });
+            return library;
         });
         
         return Ok(library);
+
     }
 
     [HttpPost]

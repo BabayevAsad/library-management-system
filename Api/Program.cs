@@ -1,6 +1,5 @@
 using System.Text;
 using Application.Auth.Register;
-using Application.Behavior;
 using Application.Books.Commands.Create;
 using Application.Books.Commands.Update;
 using Application.Books.Queries.GetAll;
@@ -48,6 +47,16 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddTransient<TokenHandler>();
 
 builder.Services.RegisterRepositories();
+
+
+builder.Services.AddTransient(typeof(DbTransactionHandlerMiddleware<>));
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllBooksQuery).Assembly));
+
+builder.Services.AddEndpointsApiExplorer();
+
 
 builder.Services.AddAuthentication(options =>
     {
@@ -102,15 +111,6 @@ builder.Services.AddSwaggerGen(option =>
         }
     );
 });
-
-builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(MediatorCacheBehavior<,>));
-builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(MediatorCacheInvalidationBehavior<,>));
-
-builder.Services.AddTransient(typeof(DbTransactionHandlerMiddleware<>));
-
-builder.Services.AddControllers();
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllBooksQuery).Assembly));
-builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
