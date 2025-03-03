@@ -38,7 +38,7 @@ Technologies Used
 3)MediatR for CQRS pattern
 4)LINQ for querying collections efficiently
 5)JWT Authentication
-6)Redis Caching
+6)Memory Caching
 7)SQL Server / PostgreSQL (configurable database support)
 8)FluentValidation for request validation
 9)Dependency Injection
