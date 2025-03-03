@@ -42,6 +42,7 @@ Technologies Used
 7) SQL Server / PostgreSQL (configurable database support)
 8) FluentValidation for request validation
 9) Dependency Injection
+10) Rate Limiting 
 
 ## Find a bug?  
 If you found any problem or would like to improve this project, please feel free to reach out to me at **asad_babayev@outlook.com** or submit an issue using the issues tab above. If you would like to submit a PR with a fix, please reference the issue you are addressing.
