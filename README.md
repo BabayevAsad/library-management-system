@@ -33,15 +33,15 @@ Supports version-controlled schema changes using Entity Framework Core Migration
 
 Technologies Used
 
-1).NET (ASP.NET Core)
-2)Entity Framework Core (EF Core)
-3)MediatR for CQRS pattern
-4)LINQ for querying collections efficiently
-5)JWT Authentication
-6)Memory Caching
-7)SQL Server / PostgreSQL (configurable database support)
-8)FluentValidation for request validation
-9)Dependency Injection
+1) .NET (ASP.NET Core)
+2) Entity Framework Core (EF Core)
+3) MediatR for CQRS pattern
+4) LINQ for querying collections efficiently
+5) JWT Authentication
+6) Memory Caching
+7) SQL Server / PostgreSQL (configurable database support)
+8) FluentValidation for request validation
+9) Dependency Injection
 
 ## Find a bug?  
 If you found any problem or would like to improve this project, please feel free to reach out to me at **asad_babayev@outlook.com** or submit an issue using the issues tab above. If you would like to submit a PR with a fix, please reference the issue you are addressing.
