@@ -1,34 +1,40 @@
 ## Library Management System Project 📚📖🧍‍♂️🧍🏻‍♀️🏛️📈
 
-About Project
-The Library Management System is a RESTful API built with .NET that manages libraries, people, and books efficiently. It supports full CRUD operations for all classes.
-The system is built following the Clean Architecture pattern and uses MediatR for handling commands and queries.
+📝 About Project
+The Library Management System is a RESTful API built with .NET to efficiently manage libraries, people, and books. It provides full CRUD operations for all entities and follows the Clean Architecture pattern. The system utilizes MediatR for handling commands and queries. The project utilizes Docker for containerization and Docker Compose for managing multi-service orchestration, including the API and database.
 
-Features
+## Features
 
-Library Management
+### 📖 Library Management  
+- Both **libraries** and **individuals** can manage book ownership.  
+- Users can **add and remove books** from libraries and personal collections.  
 
-Both libraries and people can own books.
-Books can be added and removed from both entities.
+### 🔄 Soft Delete Implementation  
+- Ensures **data security** by marking records as **deleted** instead of permanently removing them.  
 
-Soft Delete Implementation
-Ensures data security by marking records as deleted instead of permanently removing them.
+### 🔗 Entity Relationships  
+- **Many-to-Many Relationships** exist between:  
+  - **People & Books**  
+  - **Libraries & Books**  
 
-Entity Relationships
-Many-to-Many Relationship between People and Books, and between Libraries and Books.
+### 🔐 Authentication & Authorization  
+- Uses **JWT Tokens** for securing API endpoints.  
+- Supports **Role-Based Access Control (RBAC)**.  
 
-Authentication & Authorization
-Uses JWT Tokens to secure endpoints.
-Supports Roles for access control.
+### 🚀 Caching Mechanism  
+- Enhances **performance** by caching frequently accessed data.  
 
-Caching Mechanism
-Improves performance by caching frequently accessed data.
+### 🔄 Database Transactions  
+- Ensures **data integrity** with proper **transaction management**.  
 
-Database Transactions
-Ensures data integrity with proper transaction management.
+### 📦 Database Migrations  
+- Supports **version-controlled schema changes** using **Entity Framework Core Migrations**.  
 
-Database Migrations
-Supports version-controlled schema changes using Entity Framework Core Migrations.
+### 🐳 **Docker & Docker Compose**  
+- The application is **fully containerized** using **Docker** for easy deployment.  
+- **Docker Compose** orchestrates multiple services (**API, Database**) ensuring seamless integration.  
+- Provides **environment isolation**, making setup and execution consistent across different machines.  
+- Uses **Dockerfiles** to define the **API service** and **database dependencies**.  
 
 
 Technologies Used
@@ -43,6 +49,20 @@ Technologies Used
 8) FluentValidation for request validation
 9) Dependency Injection
 10) Rate Limiting 
+11) Docker & Docker Compose 
 
-## Find a bug?  
-If you found any problem or would like to improve this project, please feel free to reach out to me at **asad_babayev@outlook.com** or submit an issue using the issues tab above. If you would like to submit a PR with a fix, please reference the issue you are addressing.
+
+## ⚠️ Known Issues
+
+### Migration Issues  
+I encountered a problem with database migrations, which led to inconsistencies. To resolve this, I removed the previous migrations and generated new ones.  
+
+### Issue with Deleting People and Libraries by ID  
+There is an issue when attempting to delete **People** and **Libraries** by their ID. Although I have reviewed the implementation and debugged the code, I have not yet identified the root cause.
+
+
+## 🐛 Find a Bug?  
+If you found any issues or want to contribute improvements, feel free to:  
+📧 **Contact:** [asad_babayev@outlook.com](mailto:asad_babayev@outlook.com)  
+📌 **Submit an Issue:** Use the **Issues** tab above.  
+🔄 **Contribute a PR:** If submitting a fix, please reference the related issue.
