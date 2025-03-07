@@ -22,7 +22,11 @@ using Microsoft.OpenApi.Models;
 using TokenHandler = Application.Token.TokenHandler;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddEnvironmentVariables();
 
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers()
     .AddFluentValidation(fv =>
@@ -38,26 +42,13 @@ builder.Services.AddControllers()
         fv.RegisterValidatorsFromAssemblyContaining<AddBookToLibraryCommandValidator>();
     });
 
-builder.Services.AddSwaggerGen();
-
-builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-    .AddEnvironmentVariables();
-
-builder.Services.AddDbContext<DataContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddTransient<TokenHandler>();
-
 builder.Services.RegisterRepositories();
-
-
+builder.Services.AddTransient<TokenHandler>();
 builder.Services.AddTransient(typeof(DbTransactionHandlerMiddleware<>));
-
-builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllBooksQuery).Assembly));
 
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddRateLimiter(rateLimiterOptions =>
 {
@@ -132,11 +123,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<DbTransactionHandlerMiddleware<DataContext>>();
 app.UseHttpsRedirection();
-app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers().RequireRateLimiting("fixed"); 
+app.UseMiddleware<DbTransactionHandlerMiddleware<DataContext>>();
+app.UseRateLimiter();
+app.MapControllers().RequireRateLimiting("fixed");
 
 app.Run();

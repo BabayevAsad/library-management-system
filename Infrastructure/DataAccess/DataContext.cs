@@ -69,7 +69,7 @@ public class DataContext : DbContext
         modelBuilder.Entity<Library>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.ToTable("libraries");
+            entity.ToTable("libraries"); 
         });
 
         modelBuilder.Entity<Person>(entity =>
@@ -81,7 +81,7 @@ public class DataContext : DbContext
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.ToTable("users"); // Avoid reserved keyword issues
+            entity.ToTable("users"); 
         });
 
         modelBuilder.Entity<LibraryBook>(entity =>
