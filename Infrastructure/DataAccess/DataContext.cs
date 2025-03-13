@@ -52,7 +52,7 @@ public class DataContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Book>(entity =>
+        modelBuilder.Entity<Book>(entity => 
         {
             entity.HasKey(e => e.Id);
             entity.ToTable("books");

@@ -26,7 +26,7 @@ public class GetByIdPersonQueryHandler : IRequestHandler<GetByIdPersonQuery, Per
             FatherName = person.FatherName,
             BirthDate = person.BirthDate,
             FinNumber = person.FinNumber,
-            GenderId = person.GenderId,
+            GenderId = (Gender)GenderHelper.GetById(person.GenderId),
             Books =person.Books.Select(b => new BookDto()
                 { 
                     Name = b.Name,

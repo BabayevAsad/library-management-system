@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Infrastructure
 {
     public static class ApplicationInjection
-    {
+    {   
         public static void RegisterRepositories(this IServiceCollection services)
         {
             var aa = Assembly.GetExecutingAssembly().GetExportedTypes()

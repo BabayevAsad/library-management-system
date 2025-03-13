@@ -43,8 +43,7 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
                    .FirstOrDefaultAsync() 
                ?? throw new NullReferenceException($"No {typeof(TEntity).Name} found with Id {id} in the database.");
     }
-
-
+    
     public async Task CreateAsync(TEntity entity)
     {
         _dbSet.Add(entity);

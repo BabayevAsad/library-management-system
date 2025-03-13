@@ -11,8 +11,4 @@ public class PersonBook : BaseEntity
     
     public Book Book { get; set; }
     public int BookId { get; set; }
-
-    public PersonBook()
-    {
-    }
 }

@@ -24,7 +24,7 @@ public class GetAllPeopleQueryHandler : IRequestHandler<GetAllPeopleQuery, List<
                 Surname = p.Surname,
                 FatherName = p.FatherName,
                 BirthDate = p.BirthDate,
-                GenderId = p.GenderId,
+                GenderId = (Gender)GenderHelper.GetById(p.GenderId),
                 FinNumber = p.FinNumber,
             }).ToList();
 
