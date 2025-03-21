@@ -21,7 +21,6 @@ public class AuthController : ControllerBase
     public async Task<ActionResult> Register([FromBody] RegisterCommand registerCommand)
     {
         var token = await _mediator.Send(registerCommand);
-        
         return Ok(token);
     }
 
@@ -29,7 +28,6 @@ public class AuthController : ControllerBase
     public async Task<ActionResult> Login([FromBody] LoginCommand loginCommand)
     {
         var token = await _mediator.Send(loginCommand);
-
         return Ok(token);
     }
 }

@@ -30,7 +30,7 @@ public class TokenHandler
         token.Expiration = DateTime.Now.AddMinutes(Convert.ToInt16(_configuration["Token:Expiration"]));
 
         var claims = new List<Claim>()
-        {
+        {   
             new(JwtRegisteredClaimNames.Sub, user.UserName),
             new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new(ClaimTypes.Name, user.UserName),

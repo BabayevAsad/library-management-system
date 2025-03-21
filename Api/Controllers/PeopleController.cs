@@ -1,6 +1,4 @@
-﻿using Api.People;
-using Application.Application.Caching;
-using Application.People.Commands.AddBook;
+﻿using Application.People.Commands.AddBook;
 using Application.People.Commands.Create;
 using Application.People.Commands.Delete;
 using Application.People.Commands.RemoveBook;
@@ -9,7 +7,6 @@ using Application.People.Queries.GetAll;
 using Application.People.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Distributed;
 
 namespace CleanArchitectire.Controllers;
 
@@ -18,34 +15,24 @@ namespace CleanArchitectire.Controllers;
 [Route("api/[controller]")]
 public class PeopleController : Controller
 {
-    private readonly IDistributedCache _cache;
     private readonly IMediator _mediator;
 
-    public PeopleController(IMediator mediator, IDistributedCache cache)
+    public PeopleController(IMediator mediator)
     {
-        _cache = cache;
         _mediator = mediator;
     }
     
     [HttpGet]
-    public async Task<ActionResult<List<Person>>> GetAll()
+    public async Task<ActionResult<List<PersonDetailsDto>>> GetAll()
     {
         var people = await _mediator.Send(new GetAllPeopleQuery());
-        
         return Ok(people);
     }
     
     [HttpGet("{id}")]
-    public async Task<ActionResult<Person>> GetById([FromRoute] int id)
+    public async Task<ActionResult<PersonDetailsDto>> GetById([FromRoute] int id)
     {
-        string key = $"person-{id}";
-        
-        var person = await _cache.GetOrCreateAsync(key, async token => 
-        {
-            var person = await _mediator.Send(new GetByIdPersonQuery { Id = id });
-            return person;
-        });
-
+        var person = await _mediator.Send(new GetByIdPersonQuery { Id = id });
         return Ok(person);
     }
 
@@ -53,7 +40,6 @@ public class PeopleController : Controller
     public async Task<ActionResult> Create([FromBody] CreatePersonCommand command)
     {
         var personId = await _mediator.Send(command);
-
         return Created("", personId);
     }
 

@@ -1,13 +1,10 @@
-﻿using Api.Books;
-using Application.Application.Caching;
-using Application.Books.Commands.Create;
+﻿using Application.Books.Commands.Create;
 using Application.Books.Commands.Delete;
 using Application.Books.Commands.Update;
 using Application.Books.Queries.GetAll;
 using Application.Books.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Distributed;
 
 namespace CleanArchitectire.Controllers;
 
@@ -16,34 +13,24 @@ namespace CleanArchitectire.Controllers;
 
 public class BooksController : Controller
 {
-    private readonly IDistributedCache _cache;
     private readonly IMediator _mediator;
 
-    public BooksController(IDistributedCache cache, IMediator mediator)
+    public BooksController(IMediator mediator)
     {
-        _cache = cache;
         _mediator = mediator;
     }   
     
     [HttpGet]
-    public async Task<ActionResult<List<Book>>> GetAll()
+    public async Task<ActionResult<List<BookListDto>>> GetAll()
     {
         var books = await _mediator.Send(new GetAllBooksQuery());
-        
         return Ok(books);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Book>> GetById([FromRoute] int id)
+    public async Task<ActionResult<BookDetailsDto>> GetById([FromRoute] int id)
     {
-        string key = $"book-{id}";
-
-        var book = await _cache.GetOrCreateAsync(key, async token =>
-        {
-            var book = await _mediator.Send(new GetByIdBookQuery { Id = id });
-            return book;
-        });
-        
+        var book = await _mediator.Send(new GetByIdBookQuery { Id = id });
         return Ok(book);
     }
 
@@ -51,7 +38,6 @@ public class BooksController : Controller
     public async Task<ActionResult> Create([FromBody] CreateBookCommand command)
     {
         var bookId = await _mediator.Send(command);
-
         return Created("", bookId);
     }
 
@@ -71,7 +57,7 @@ public class BooksController : Controller
         {
             Id = id
         });
-
+        
         return NoContent();
     }
 }
