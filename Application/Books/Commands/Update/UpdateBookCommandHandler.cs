@@ -1,4 +1,5 @@
 ﻿using Api.Books;
+using Api.People;
 using MediatR;
 using Microsoft.Extensions.Caching.Distributed;
 
@@ -18,9 +19,19 @@ public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand>
     
     public async Task Handle(UpdateBookCommand request, CancellationToken cancellationToken)
     {
+        var book = await _repo.GetByIdAsync(request.Id);
+        
         await _cache.RemoveAsync($"{nameof(Book)}-{request.Id}");
 
-        var book = await _repo.GetByIdAsync(request.Id);
+        foreach (var library in book.Libraries)
+        {
+            await _cache.RemoveAsync($"{nameof(Library)}-{library.Id}");
+        }
+
+        foreach (var person in book.People)
+        {
+            await _cache.RemoveAsync($"{nameof(Person)}-{person.Id}");
+        }
 
         book.Name = request.Name;
         book.Type = request.Type;

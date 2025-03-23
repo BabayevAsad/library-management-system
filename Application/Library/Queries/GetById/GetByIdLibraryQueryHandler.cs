@@ -32,6 +32,7 @@ public class GetByIdLibraryQueryHandler : IRequestHandler<GetByIdLibraryQuery,Li
                 Count = library.Count,
                 Books = library.Books.Select(b => new BookDto()
                 {
+                    Id = b.Id,
                     Name = b.Name,
                     Type = b.Type,
                     PageCount = b.PageCount,

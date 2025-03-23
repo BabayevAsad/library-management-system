@@ -36,6 +36,7 @@ public class GetByIdPersonQueryHandler : IRequestHandler<GetByIdPersonQuery, Per
                 GenderId = (Gender)GenderHelper.GetById(person.GenderId),
                 Books = person.Books.Select(b => new BookDto()
                 {
+                    Id = b.Id,
                     Name = b.Name,
                     Type = b.Type,
                     PageCount = b.PageCount,

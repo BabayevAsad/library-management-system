@@ -36,6 +36,7 @@ public class GetByIdBookQueryHandler : IRequestHandler<GetByIdBookQuery, BookDet
                 Price = book.Price,
                 People = book.People.Select(p => new PersonDto()
                 {
+                    Id = p.Id,
                     Name = p.Name,
                     Surname = p.Surname,
                     FatherName = p.FatherName,
